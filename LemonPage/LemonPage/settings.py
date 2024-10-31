@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!50nxqs7#&78dj&&$%fw3a!aziqxjhc223e6f)dn9fy--)j!*w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -75,19 +75,22 @@ WSGI_APPLICATION = 'LemonPage.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     #EJEMPLO PARA BASE DE DATOS EN MYSQL
-    #     'default': {   
-    #     'ENGINE': 'django.db.backends.mysql',   
-    #     'NAME': 'djangotest',   
-    #     'USER': 'root',   
-    #     'PASSWORD': 'password',   
-    #     'HOST': '127.0.0.1',   
-    #     'PORT': '3306',            
-    # }   
+        'default': {   
+        'ENGINE': 'django.db.backends.mysql',   
+        'NAME': 'mydatabase',   
+        'USER': 'root',   
+        'PASSWORD': 'root25',   
+        'HOST': '127.0.0.1',   
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }            
+    }   
 }
 
 
